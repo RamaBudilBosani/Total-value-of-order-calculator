@@ -1,0 +1,25 @@
+order_value = float(input("Enter the order value: "))
+express_delivery = input("Do you want to enable Express delivery (yes/no): ").strip().lower()
+vip_member = input("Are you a VIP member? (yes/no): ").strip().lower()
+
+if order_value < 20:
+    print("Order value too low for shipping.")
+else:
+    # Determine shipping cost
+    if vip_member == "yes" or order_value >= 100:
+        Shipping_cost = 0
+    elif 20 <= order_value < 50:
+        Shipping_cost = 10
+    else:
+        Shipping_cost = 5
+
+    # Express fee calculation
+    if express_delivery == "yes":
+        extra_charge = 15
+    else:
+        extra_charge = 0
+
+    # Total order calculation
+    Total_value_of_order = order_value + Shipping_cost + extra_charge
+    print(f"The total value of your order is: ${Total_value_of_order:}")
+
